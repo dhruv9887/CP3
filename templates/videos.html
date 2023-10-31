@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}VIDEOS{% endblock title %}
+
+{% block body %}
+
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+            /* Add some styling to the video player container */
+            .video-player {
+                border: 1px solid #ccc;
+                padding: 15px;
+            }
+            /* Add styling for the suggested video list */
+            .suggested-videos {
+                border: 1px solid #ccc;
+                padding: 0px;
+                max-height: 600px; /* Limit the height for scrollability */
+                overflow-y: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Video Player with Controls -->
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="{% static 'videos/optical_flow_vid.mp4' %}" allowfullscreen controls></iframe>
+                    </div>
+                    <!-- Video Title and Channel Button Inside the Video Player -->
+                    <div class="d-flex justify-content-between mt-3">
+                        <div>
+                            <h2 class="mt-0">Video Title</h2>
+                        </div>
+                        <div>
+                            <a href="channel.html" class="btn btn-primary">Channel</a>
+                        </div>
+                    </div>
+                    <!-- Video Description -->
+                    <p>Video Description goes here.</p>
+                </div>
+                <div class="col-lg-4">
+                    <!-- Right Column with Suggested Videos -->
+                    <div class="suggested-videos" style="overflow-x:hidden; background-color:magenta;">
+                        <!-- Sample Suggested Videos with Thumbnails (You can customize this) -->
+                        <h4 align="center">Suggested Videos</h4>
+                        <ul class="list-group">
+                            <!-- Example of 10 suggested videos with only thumbnails -->
+                            <li class="list-group-item">
+                                <img src="{% static 'thumbnails/th1.png' %}" alt="Video Thumbnail">
+                            </li>
+                            <li class="list-group-item">
+                                <img src="{% static 'thumbnails/th2.png' %}" alt="Video Thumbnail">
+                            </li>
+                            <li class="list-group-item">
+                                <img src="{% static 'thumbnails/th3.png' %}" alt="Video Thumbnail">
+                            </li>
+                            <li class="list-group-item">
+                                <img src="{% static 'thumbnails/th4.png' %}" alt="Video Thumbnail">
+                            </li>
+                            <li class="list-group-item">
+                                <img src="{% static 'thumbnails/th5.png' %}" alt="Video Thumbnail">
+                            </li>
+                            <li class="list-group-item">
+                                <img src="{% static 'thumbnails/th6.png' %}" alt="Video Thumbnail">
+                            </li>
+                            <li class="list-group-item">
+                                <img src="{% static 'thumbnails/th1.png' %}" alt="Video Thumbnail">
+                            </li>
+                            <li class="list-group-item">
+                                <img src="{% static 'thumbnails/th2.png' %}" alt="Video Thumbnail">
+                            </li>
+                            <li class="list-group-item">
+                                <img src="{% static 'thumbnails/th3.png' %}" alt="Video Thumbnail">
+                            </li>
+                            <li class="list-group-item">
+                                <img src="{% static 'thumbnails/th4.png' %}" alt="Video Thumbnail">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Include Bootstrap and jQuery Scripts -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>
+
+{% endblock body %}
+

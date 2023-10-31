@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" id="video-container"></div>
+    </div>
+
+    <script>
+        // JavaScript code to generate unique video IDs and populate the video container
+        function generateUniqueId() {
+            return 'video-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+        }
+
+        function createVideoElement() {
+            const videoContainer = document.getElementById('video-container');
+
+            for (let i = 1; i <= 9; i++) {
+                const videoId = generateUniqueId();
+                const videoTitle = `Video ${i}`;
+                {% comment %} const videoPath = `videos/video_${i}.mp4`; {% endcomment %}
+                const videoPath = `D:/SEMESTER-7/CP-III/DEAFTUBE/static/videos/Self Introduction.mp4`
+                const col = document.createElement('div');
+                col.className = 'col-md-4 mb-4';
+
+                const card = document.createElement('div');
+                card.className = 'card';
+
+                const video = document.createElement('video');
+                video.className = 'card-img-top';
+                video.controls = true;
+                video.innerHTML = `<source src="${videoPath}" type="video/mp4">Your browser does not support the video tag.`;
+
+                const cardBody = document.createElement('div');
+                cardBody.className = 'card-body';
+
+                const cardTitle = document.createElement('h5');
+                cardTitle.className = 'card-title';
+                cardTitle.textContent = videoTitle;
+
+                cardBody.appendChild(cardTitle);
+                card.appendChild(video);
+                card.appendChild(cardBody);
+                col.appendChild(card);
+                videoContainer.appendChild(col);
+            }
+        }
+
+        createVideoElement();
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
